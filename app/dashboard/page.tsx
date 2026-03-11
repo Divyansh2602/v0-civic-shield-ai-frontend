@@ -5,8 +5,9 @@ import { RiskGauge } from '@/components/dashboard/risk-gauge';
 import { ThreatFeed } from '@/components/dashboard/threat-feed';
 import { MetricCard } from '@/components/dashboard/metric-card';
 import { ChartSection } from '@/components/dashboard/chart-section';
+import { ThreatMap } from '@/components/dashboard/threat-map';
 import { mockDashboard } from '@/lib/mock-data';
-import { AlertCircle, RefreshCw, Download } from 'lucide-react';
+import { AlertCircle, RefreshCw, Download, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 
@@ -196,6 +197,25 @@ export default function DashboardPage() {
               </div>
             </motion.div>
           </div>
+
+          {/* Global Cyber Threat Map */}
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-xl font-semibold">Global Cyber Threat Map</h3>
+                <p className="text-sm text-muted-foreground mt-1">Real-time visualization of active threat intelligence intercepts (Demonstrative UI)</p>
+              </div>
+              <div className="px-3 py-1 rounded-full bg-primary/20 border border-primary/40">
+                <span className="text-xs font-semibold text-primary">SIMULATION MODE</span>
+              </div>
+            </div>
+            <ThreatMap />
+          </motion.div>
 
           {/* Charts Section */}
           <ChartSection />

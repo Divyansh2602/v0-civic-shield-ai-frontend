@@ -1,10 +1,11 @@
 'use client';
 
 import { AppLayout } from '@/components/app-layout';
+import { NetworkGraph } from '@/components/dashboard/network-graph';
 import { mockAttackSurface } from '@/lib/mock-data';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Network, AlertTriangle, Shield, Zap, RefreshCw } from 'lucide-react';
+import { Network, AlertTriangle, Shield, Zap, RefreshCw, Globe, Zap as ApiIcon, AlertTriangleIcon } from 'lucide-react';
 
 export default function AttackSurfacePage() {
   const getRiskColor = (risk: string) => {
@@ -41,59 +42,64 @@ export default function AttackSurfacePage() {
             <motion.div
               className="card-glass p-6"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-lg bg-[#00f5a0]/10">
-                  <Network className="w-6 h-6 text-[#00f5a0]" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-sm">Exposed Assets</p>
-                  <p className="text-2xl font-bold">{mockAttackSurface.exposedAssets}</p>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <Globe className="w-5 h-5 text-[#00f5a0]" />
+                  <h3 className="font-semibold">Domains Discovered</h3>
                 </div>
               </div>
-              <div className="text-xs text-muted-foreground">Monitored across all locations</div>
+              <p className="text-3xl font-bold mb-2">9</p>
+              <p className="text-sm text-muted-foreground">Target and subdomains via recon</p>
             </motion.div>
 
             <motion.div
               className="card-glass p-6"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-lg bg-red-500/10">
-                  <AlertTriangle className="w-6 h-6 text-red-400" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-sm">Risky Assignments</p>
-                  <p className="text-2xl font-bold text-red-400">{mockAttackSurface.riskfulAssignments}</p>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <ApiIcon className="w-5 h-5 text-[#00f5a0]" />
+                  <h3 className="font-semibold">APIs Exposed</h3>
                 </div>
               </div>
-              <div className="text-xs text-muted-foreground">Require immediate attention</div>
+              <p className="text-3xl font-bold mb-2">0</p>
+              <p className="text-sm text-muted-foreground">Active endpoints detected</p>
             </motion.div>
 
             <motion.div
               className="card-glass p-6"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-lg bg-yellow-500/10">
-                  <Zap className="w-6 h-6 text-yellow-400" />
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-sm">Unmonitored Systems</p>
-                  <p className="text-2xl font-bold text-yellow-400">{mockAttackSurface.unmonitoredSystems}</p>
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <AlertTriangleIcon className="w-5 h-5 text-red-400" />
+                  <h3 className="font-semibold">High-Risk Assets</h3>
                 </div>
               </div>
-              <div className="text-xs text-muted-foreground">Need monitoring enabled</div>
+              <p className="text-3xl font-bold text-red-400 mb-2">1</p>
+              <p className="text-sm text-muted-foreground">Require immediate attention</p>
             </motion.div>
           </div>
+
+          {/* Network Visualization */}
+          <motion.div
+            className="space-y-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Attack Surface Map</h3>
+              <p className="text-sm text-muted-foreground">Network topology showing exposed endpoints and their relationships</p>
+            </div>
+            <NetworkGraph />
+          </motion.div>
 
           {/* Exposed Services */}
           <motion.div

@@ -11,7 +11,7 @@ export function AppLayout({ children }: AppLayoutProps) {
   return (
     <div className="min-h-screen bg-background grid-bg">
       <Navigation />
-      <main className="relative">
+      <main className="relative lg:ml-56">
         {children}
       </main>
     </div>
