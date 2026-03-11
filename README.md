@@ -93,7 +93,7 @@ A modern, AI-powered cybersecurity intelligence and vulnerability detection syst
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Divyansh2602/v0-civic-shield-ai-frontend
    cd civicshield-ai
    ```
 
