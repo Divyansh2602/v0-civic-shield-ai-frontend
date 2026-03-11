@@ -108,7 +108,7 @@ A modern, AI-powered cybersecurity intelligence and vulnerability detection syst
 
 3. **Configure environment variables**
    ```bash
-   cp .env.example .env.local
+   copy .env.example .env.local
    ```
    
    Edit `.env.local` and set:
