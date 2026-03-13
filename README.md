@@ -110,7 +110,7 @@ Generate and manage comprehensive security reports with multiple templates inclu
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Divyansh2602/v0-civic-shield-ai-frontend
    cd civicshield-ai
    ```
 
@@ -235,6 +235,10 @@ components/
 - Smooth page transitions
 - Toast notifications for user actions
 - Collapsible sidebar for mobile optimization
+
+### Landing Page
+
+
 
 ## Environment Variables
 
