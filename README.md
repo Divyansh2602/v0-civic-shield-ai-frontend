@@ -2,6 +2,23 @@
 
 A modern, AI-powered cybersecurity intelligence and vulnerability detection system built with Next.js, Tailwind CSS, and integrated with a Python FastAPI backend.
 
+## Screenshots
+
+### Landing Page
+The homepage introduces CivicShield AI with a compelling hero section, key statistics, and easy access to launch the dashboard.
+
+![Landing Page](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-FTxw22ScNUIeCVtZwITiLVKAhPCQfM.png)
+
+### Security Dashboard
+The main dashboard provides real-time threat monitoring, security metrics, risk scoring, and comprehensive threat intelligence with interactive visualizations.
+
+![Security Dashboard](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-6RgjmeRPJMjRtbGgjS2TrT10939XOJ.png)
+
+### Reports & Analytics
+Generate and manage comprehensive security reports with multiple templates including Executive Summary, Vulnerability Reports, and Compliance Documentation.
+
+![Reports & Analytics](https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Kl0mr7m1ipdULfUHvTJ1R6REJSpgmk.png)
+
 ## Features
 
 ### Landing Page
