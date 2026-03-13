@@ -219,6 +219,9 @@ components/
 - Toast notifications for user actions
 - Collapsible sidebar for mobile optimization
 
+###Landing Page
+
+
 ## Environment Variables
 
 ```
