@@ -5,7 +5,7 @@ import { NetworkGraph } from '@/components/dashboard/network-graph';
 import { mockAttackSurface } from '@/lib/mock-data';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Network, AlertTriangle, Shield, Zap, RefreshCw, Globe, Zap as ApiIcon, AlertTriangleIcon } from 'lucide-react';
+import { Network, AlertTriangle, Shield, Zap, RefreshCw, Globe } from 'lucide-react';
 
 export default function AttackSurfacePage() {
   const getRiskColor = (risk: string) => {
@@ -78,7 +78,7 @@ export default function AttackSurfacePage() {
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-center gap-3">
-                  <AlertTriangleIcon className="w-5 h-5 text-red-400" />
+                  <AlertTriangle className="w-5 h-5 text-red-400" />
                   <h3 className="font-semibold">High-Risk Assets</h3>
                 </div>
               </div>

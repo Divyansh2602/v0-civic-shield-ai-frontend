@@ -12,23 +12,27 @@ interface ThreatLocation {
   attackType: string;
 }
 
-const threatLocations: ThreatLocation[] = [
-  { id: '1', country: 'USA', x: 20, y: 40, severity: 'medium', attackType: 'Proxy/VPN Activity' },
-  { id: '2', country: 'UK', x: 50, y: 35, severity: 'high', attackType: 'Scanning Activity' },
-  { id: '3', country: 'Germany', x: 55, y: 32, severity: 'critical', attackType: 'Data Exfiltration' },
-  { id: '4', country: 'Russia', x: 65, y: 30, severity: 'critical', attackType: 'C2 Communication' },
-  { id: '5', country: 'China', x: 75, y: 45, severity: 'high', attackType: 'Exploitation Attempts' },
-  { id: '6', country: 'India', x: 70, y: 50, severity: 'critical', attackType: 'Credential Attacks' },
-  { id: '7', country: 'Brazil', x: 35, y: 65, severity: 'medium', attackType: 'DDoS Traffic' },
-  { id: '8', country: 'Australia', x: 80, y: 75, severity: 'medium', attackType: 'Reconnaissance' },
-];
+const threatLocationsMap: { [key: string]: ThreatLocation } = {
+  '1': { id: '1', country: 'USA', x: 20, y: 40, severity: 'medium', attackType: 'Proxy/VPN Activity' },
+  '2': { id: '2', country: 'UK', x: 50, y: 35, severity: 'high', attackType: 'Scanning Activity' },
+  '3': { id: '3', country: 'Germany', x: 55, y: 32, severity: 'critical', attackType: 'Data Exfiltration' },
+  '4': { id: '4', country: 'Russia', x: 65, y: 30, severity: 'critical', attackType: 'C2 Communication' },
+  '5': { id: '5', country: 'China', x: 75, y: 45, severity: 'high', attackType: 'Exploitation Attempts' },
+  '6': { id: '6', country: 'India', x: 70, y: 50, severity: 'critical', attackType: 'Credential Attacks' },
+  '7': { id: '7', country: 'Brazil', x: 35, y: 65, severity: 'medium', attackType: 'DDoS Traffic' },
+  '8': { id: '8', country: 'Australia', x: 80, y: 75, severity: 'medium', attackType: 'Reconnaissance' },
+};
+
+const threatLocations: ThreatLocation[] = Object.values(threatLocationsMap);
 
 const connections = [
-  { from: 0, to: 1, severity: 'critical' },
-  { from: 1, to: 2, severity: 'high' },
-  { from: 2, to: 3, severity: 'critical' },
-  { from: 3, to: 4, severity: 'high' },
-  { from: 4, to: 5, severity: 'critical' },
+  { from: '1', to: '2', severity: 'critical' as const },
+  { from: '2', to: '3', severity: 'high' as const },
+  { from: '3', to: '4', severity: 'critical' as const },
+  { from: '4', to: '5', severity: 'high' as const },
+  { from: '5', to: '6', severity: 'critical' as const },
+  { from: '1', to: '7', severity: 'medium' as const },
+  { from: '2', to: '8', severity: 'medium' as const },
 ];
 
 export function ThreatMap() {
@@ -89,8 +93,9 @@ export function ThreatMap() {
           preserveAspectRatio="none"
         >
           {connections.map((conn, idx) => {
-            const from = threatLocations[conn.from];
-            const to = threatLocations[conn.to];
+            const from = threatLocationsMap[conn.from];
+            const to = threatLocationsMap[conn.to];
+            if (!from || !to) return null;
             const x1 = (from.x / 100) * dimensions.width;
             const y1 = (from.y / 100) * dimensions.height;
             const x2 = (to.x / 100) * dimensions.width;

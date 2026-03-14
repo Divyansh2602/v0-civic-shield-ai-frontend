@@ -162,3 +162,5 @@ export function Navigation() {
     </>
   );
 }
+
+export { Navigation };
