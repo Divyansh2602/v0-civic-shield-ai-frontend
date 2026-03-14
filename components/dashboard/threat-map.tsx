@@ -63,28 +63,24 @@ export function ThreatMap() {
       </div>
 
       {/* Threat Connections */}
-      <svg className="absolute inset-0 w-full h-full">
+      <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
         {connections.map((conn, idx) => {
           const from = threatLocations[conn.from];
           const to = threatLocations[conn.to];
-          const x1 = (from.x / 100) * 100 + '%';
-          const y1 = (from.y / 100) * 100 + '%';
-          const x2 = (to.x / 100) * 100 + '%';
-          const y2 = (to.y / 100) * 100 + '%';
 
           return (
             <motion.line
               key={idx}
-              x1={x1}
-              y1={y1}
-              x2={x2}
-              y2={y2}
+              x1={`${from.x}%`}
+              y1={`${from.y}%`}
+              x2={`${to.x}%`}
+              y2={`${to.y}%`}
               stroke={getSeverityColor(conn.severity)}
               strokeWidth="2"
               strokeOpacity="0.6"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 0.6 }}
-              transition={{ duration: 2, delay: idx * 0.2 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ duration: 1.5, delay: idx * 0.2 }}
             />
           );
         })}
