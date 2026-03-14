@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
 
 interface ThreatLocation {
   id: string;
@@ -31,6 +32,24 @@ const connections = [
 ];
 
 export function ThreatMap() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const updateDimensions = () => {
+      if (containerRef.current) {
+        setDimensions({
+          width: containerRef.current.offsetWidth,
+          height: containerRef.current.offsetHeight,
+        });
+      }
+    };
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    return () => window.removeEventListener('resize', updateDimensions);
+  }, []);
+
   const getSeverityColor = (severity: string) => {
     switch (severity) {
       case 'critical':
@@ -43,7 +62,7 @@ export function ThreatMap() {
   };
 
   return (
-    <div className="relative w-full h-96 rounded-lg border border-white/10 bg-black/20 overflow-hidden">
+    <div ref={containerRef} className="relative w-full h-96 rounded-lg border border-white/10 bg-black/20 overflow-hidden">
       {/* Grid Background */}
       <div className="absolute inset-0 opacity-20">
         {Array.from({ length: 10 }).map((_, i) => (
@@ -63,28 +82,35 @@ export function ThreatMap() {
       </div>
 
       {/* Threat Connections */}
-      <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-        {connections.map((conn, idx) => {
-          const from = threatLocations[conn.from];
-          const to = threatLocations[conn.to];
+      {dimensions.width > 0 && (
+        <svg 
+          className="absolute inset-0 w-full h-full" 
+          viewBox={`0 0 ${dimensions.width} ${dimensions.height}`}
+          preserveAspectRatio="none"
+        >
+          {connections.map((conn, idx) => {
+            const from = threatLocations[conn.from];
+            const to = threatLocations[conn.to];
+            const x1 = (from.x / 100) * dimensions.width;
+            const y1 = (from.y / 100) * dimensions.height;
+            const x2 = (to.x / 100) * dimensions.width;
+            const y2 = (to.y / 100) * dimensions.height;
 
-          return (
-            <motion.line
-              key={idx}
-              x1={`${from.x}%`}
-              y1={`${from.y}%`}
-              x2={`${to.x}%`}
-              y2={`${to.y}%`}
-              stroke={getSeverityColor(conn.severity)}
-              strokeWidth="2"
-              strokeOpacity="0.6"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
-              transition={{ duration: 1.5, delay: idx * 0.2 }}
-            />
-          );
-        })}
-      </svg>
+            return (
+              <line
+                key={idx}
+                x1={x1}
+                y1={y1}
+                x2={x2}
+                y2={y2}
+                stroke={getSeverityColor(conn.severity)}
+                strokeWidth="2"
+                opacity="0.6"
+              />
+            );
+          })}
+        </svg>
+      )}
 
       {/* Threat Nodes */}
       {threatLocations.map((location, idx) => (
