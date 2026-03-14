@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
-import { Shield, BarChart3, Zap, Network, Lock, Mail, ArrowRight } from 'lucide-react';
+import { Shield, BarChart3, Zap, Network, Lock, Mail, ArrowRight, MapPin, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useState, useEffect } from 'react';
+
 
 export default function LandingPage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -106,9 +107,13 @@ export default function LandingPage() {
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
-            <Button variant="outline" size="lg" className="border-white/20 text-foreground hover:bg-white/5 w-full">
+            <Link href="#features">
+            <Button variant="outline" size="lg" className="border-white/20 text-foreground hover:bg-white/5 w-full" onClick={() => {
+              document.getElementById("features")?.scrollIntoView({ behavior: "smooth" });
+            }}>
               Learn More
             </Button>
+            </Link>
           </div>
 
           {/* Stats */}
@@ -129,7 +134,7 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4 md:px-6 max-w-7xl mx-auto">
+      <section id="features" className="py-20 px-4 md:px-6 max-w-7xl mx-auto">
         <div className="space-y-16">
           <div className="text-center space-y-4">
             <h2 className="text-3xl md:text-4xl font-bold">Comprehensive Security Platform</h2>
@@ -167,11 +172,45 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
       <footer className="border-t border-white/10 py-12 px-4 md:px-6">
-        <div className="max-w-7xl mx-auto text-center text-muted-foreground">
-          <p>&copy; 2024 CivicShield AI. All rights reserved.</p>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 text-muted-foreground">
+
+          {/* Brand */}
+          <div className="space-y-3">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00f5a0] to-[#00d87d] flex items-center justify-center">
+                <Shield className="w-5 h-5 text-background" />
+              </div>
+              <span className="text-lg font-bold text-white">CivicShield</span>
+            </div>
+            <p className="text-sm max-w-xs">
+              AI-powered cybersecurity platform providing real-time threat detection,
+              vulnerability management, and advanced security intelligence.
+            </p>
+          </div>
+
+          {/* Get in Touch */}
+          <div className="space-y-3">
+            <h3 className="text-white font-semibold text-lg">Get in Touch</h3>
+            <div className="space-y-2 text-sm">
+              <p className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-[#00f5a0]" />
+                Vellore Institute of Technology, Vellore, Tamil Nadu, India
+              </p>
+              <p className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#00f5a0]" />
+                divyanshg2602@gmail.com
+              </p>
+              <p className="flex items-center gap-2">
+                <Users className="w-4 h-4 text-[#00f5a0]" />
+                Dual_Scammers
+              </p>
+            </div>
+          </div>
+        </div>    
+        {/* Bottom Copyright */}
+        <div className="max-w-7xl mx-auto mt-10 pt-6 border-t border-white/10 text-center text-sm text-muted-foreground">
+          © 2026 CivicShield AI. All rights reserved.
         </div>
       </footer>
     </div>

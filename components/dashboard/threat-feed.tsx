@@ -6,7 +6,7 @@ import { mockDashboard } from '@/lib/mock-data';
 import { useState, useEffect } from 'react';
 
 export function ThreatFeed() {
-  const [displayedThreats, setDisplayedThreats] = useState(mockDashboard.recentThreats.slice(0, 3));
+  const [displayedThreats, setDisplayedThreats] = useState(mockDashboard.recentThreats.slice(0, 5));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,7 +56,7 @@ export function ThreatFeed() {
   };
 
   return (
-    <div className="space-y-3 h-[280px] overflow-hidden">
+    <div className="space-y-3 h-[460px] overflow-hidden">
       <AnimatePresence mode="popLayout">
         {displayedThreats.map((threat, idx) => {
           const Icon = getSeverityIcon(threat.severity);

@@ -8,8 +8,8 @@ import { Shield, AlertTriangle, CheckCircle, Mail, TrendingDown } from 'lucide-r
 import { Button } from '@/components/ui/button';
 
 const phishingBreakdown = [
-  { name: 'Blocked by ML', value: mockPhishingData.blockedByML, color: '#00f5a0' },
-  { name: 'Blocked by Rules', value: mockPhishingData.blockedByRules, color: '#3b82f6' },
+  { name: 'Detected by ML', value: mockPhishingData.blockedByML, color: '#00f5a0' },
+  { name: 'Blocked by Protocols', value: mockPhishingData.blockedByRules, color: '#3b82f6' },
   { name: 'Suspicious', value: mockPhishingData.suspicious, color: '#fbbf24' },
 ];
 
@@ -37,20 +37,7 @@ export default function PhishingPage() {
           </motion.div>
 
           {/* Key Metrics */}
-          <div className="grid md:grid-cols-4 gap-4">
-            <motion.div
-              className="card-glass p-6"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="flex items-center gap-3 mb-3">
-                <Mail className="w-5 h-5 text-[#00f5a0]" />
-                <span className="text-sm text-muted-foreground">Emails Analyzed</span>
-              </div>
-              <p className="text-3xl font-bold">{mockPhishingData.emailsAnalyzed.toLocaleString()}</p>
-            </motion.div>
-
+          <div className="grid md:grid-cols-3 gap-4">
             <motion.div
               className="card-glass p-6"
               initial={{ opacity: 0, y: 20 }}
