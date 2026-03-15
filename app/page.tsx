@@ -1,3 +1,9 @@
+/*
+CivicShield AI — Real-time cyber threat monitoring dashboard
+Copyright (C) 2025  <your name>
+...
+*/
+
 'use client';
 
 import Link from 'next/link';
