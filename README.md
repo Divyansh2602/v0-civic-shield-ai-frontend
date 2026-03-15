@@ -49,9 +49,9 @@ The command center. A live Risk Score gauge tracks your current exposure out of 
 
 <br/>
 
-### 🎣 Phishing & Email Security — *ML-Powered Email Threat Detection*
+🎣 Phishing & Email Security — ML-Powered Email Threat Detection
 
-> Processed **342 phishing attempts** with a **100% block rate** — a 8.5/10 risk score flagged for review. The **Detection Methods** pie chart breaks down how threats were caught: 287 by ML model, 55 blocked by protocols, 23 flagged as suspicious. The **Email Classification** bar chart visualizes the ratio of legitimate vs phishing vs suspicious mail volume across ~16,000 emails — making the signal-to-noise ratio immediately obvious.
+The detection engine. A live Block Rate metric reflects the percentage of phishing attempts neutralized in real time, alongside an overall Risk Score flagged for review. The Detection Methods pie chart breaks down how threats were caught — by ML model, blocked protocols, and suspicious flags. The Email Classification bar chart visualizes the ratio of legitimate vs. phishing vs. suspicious mail across total processed volume, making the signal-to-noise ratio immediately obvious.
 
 ![Phishing & Email Security](screenshots/phishing.png)
 
