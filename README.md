@@ -43,7 +43,7 @@ Whether you're a developer securing your first app or a security team monitoring
 
 🛡️ Security Dashboard — Real-Time Threat Monitoring
 
-The command center. A live Risk Score gauge tracks your current exposure out of 100, updated with every scan. The Active Threat Banner surfaces critical incidents requiring immediate action. Four live stat cards — Risk Score, Threats Today, Vulnerabilities, and Attacks Blocked — give an at-a-glance operational picture. The Overall Risk Level dial, Real-Time Threat Feed, and Infrastructure Overview panels round out the full situational view.
+>The command center. A live Risk Score gauge tracks your current exposure out of 100, updated with every scan. The Active Threat Banner surfaces critical incidents requiring immediate action. Four live stat cards — Risk Score, Threats Today, Vulnerabilities, and Attacks Blocked — give an at-a-glance operational picture. The Overall Risk Level dial, Real-Time Threat Feed, and Infrastructure Overview panels round out the full situational view.
 
 ![Global Cyber Threat Map](screenshots/dashboard.png)
 
@@ -51,7 +51,7 @@ The command center. A live Risk Score gauge tracks your current exposure out of 
 
 🎣 Phishing & Email Security — ML-Powered Email Threat Detection
 
-The detection engine. A live Block Rate metric reflects the percentage of phishing attempts neutralized in real time, alongside an overall Risk Score flagged for review. The Detection Methods pie chart breaks down how threats were caught — by ML model, blocked protocols, and suspicious flags. The Email Classification bar chart visualizes the ratio of legitimate vs. phishing vs. suspicious mail across total processed volume, making the signal-to-noise ratio immediately obvious.
+>The detection engine. A live Block Rate metric reflects the percentage of phishing attempts neutralized in real time, alongside an overall Risk Score flagged for review. The Detection Methods pie chart breaks down how threats were caught — by ML model, blocked protocols, and suspicious flags. The Email Classification bar chart visualizes the ratio of legitimate vs. phishing vs. suspicious mail across total processed volume, making the signal-to-noise ratio immediately obvious.
 
 ![Phishing & Email Security](screenshots/phishing.png)
 
