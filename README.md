@@ -41,9 +41,9 @@ Whether you're a developer securing your first app or a security team monitoring
 
 <br/>
 
-### 🌍 Global Cyber Threat Map — *Live Attack Intelligence*
+🛡️ Security Dashboard — Real-Time Threat Monitoring
 
-> The command center. A real-time 3D globe renders active cross-border attack paths as animated arcs. The **Country Threat Posture** legend classifies nations from Low (Stable) to Severe (Critical). A live streaming **Recent Threat Feed** panel shows the last 29 intercepts with geolocation, attack type, and UTC timestamp. The **Severity Trend** bar at the bottom breaks down Low / Medium / High / Critical distribution at a glance.
+The command center. A live Risk Score gauge tracks your current exposure out of 100, updated with every scan. The Active Threat Banner surfaces critical incidents requiring immediate action. Four live stat cards — Risk Score, Threats Today, Vulnerabilities, and Attacks Blocked — give an at-a-glance operational picture. The Overall Risk Level dial, Real-Time Threat Feed, and Infrastructure Overview panels round out the full situational view.
 
 ![Global Cyber Threat Map](screenshots/dashboard.png)
 
